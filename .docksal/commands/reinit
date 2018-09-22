@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DOCROOT=$DIR/../../docroot
+
+echo -e "\n\nRe-initializing install...\n\n"
+
+fin ddrush si -y standard \
+--site-name="DrupalCorn 2018" \
+--account-pass="admin"
+
+echo -e "\n\nEnabling modules...\n\n"
+
+fin ddrush en -y \
+admin_toolbar \
+admin_toolbar_tools \
+bricks \
+bricks_inline \
+bricks_revisions \
+eck \
+entity_reference_revisions \
+inline_entity_form \
+paragraphs
+
+# echo -e "\n\nSwitchig to DrupalCorn theme...\n\n"
+
+# fin ddrush -y config-set system.theme default drupalcorn2018
+
+echo -e "\n\nCleaning out files directory...\n\n"
+
+chmod 755 $DOCROOT/sites/default
+cd $DOCROOT/sites/default
+sudo rm -rf files
+mkdir files
+chmod a+w files

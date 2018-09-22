@@ -9,7 +9,9 @@
 
 # Ignore sensitive information
 # /docroot/sites/*/settings.php
-/docroot/sites/*/settings.local.php
+
+# Keeping local settings, it's just a demo site
+# /docroot/sites/*/settings.local.php
 
 # Ignore Drupal's file directory
 /docroot/sites/*/files/
@@ -22,3 +24,5 @@
 
 # Ignore .env files as they are personal
 /.env
+
+.DS_Store

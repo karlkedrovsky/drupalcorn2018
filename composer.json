@@ -23,6 +23,7 @@
         "drupal/bricks": "^1.6",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.6.0",
+        "drupal/devel": "^1.2",
         "drupal/eck": "1.x-dev",
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/layout_discovery_override": "^1.0",

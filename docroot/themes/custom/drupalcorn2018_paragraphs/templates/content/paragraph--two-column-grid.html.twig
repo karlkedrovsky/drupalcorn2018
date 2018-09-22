@@ -1,0 +1,11 @@
+{% if content %}
+
+  <div {{ attributes.addClass('grid-x').addClass('grid-padding-x') }}>
+    {% for column in content.field_columns if column['#paragraph'] %}
+      <div class="small-6 cell">
+        {{ column|render }}
+      </div>
+    {% endfor %}
+  </div>
+
+{% endif %}

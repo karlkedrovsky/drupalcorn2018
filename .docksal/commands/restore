@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [ "$1" == "" ]; then
+    echo -e "\nUsage: fin restore backup-name\n"
+    exit 1
+fi
+
+BACKUP_NAME="$1"
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd $DIR/../..
+
+DB_FILE="backup/db-$BACKUP_NAME.sql"
+FILES_FILE="backup/files-$BACKUP_NAME.zip"
+
+echo -e "\n\nRestoring database from: $DB_FILE\n\n"
+fin db import $DB_FILE
+
+echo -e "\n\nRestoring files from: $FILES_FILE\n\n"
+cd docroot/sites/default
+sudo rm -rf files
+unzip -q ../../../$FILES_FILE 
+chmod -R a+w files

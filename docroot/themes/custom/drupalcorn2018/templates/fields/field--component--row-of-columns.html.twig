@@ -1,0 +1,5 @@
+<div {{ attributes.addClass('component').addClass('grid-x').addClass('grid-padding-x') }}>
+  {% for item in items %}
+    <div{{ item.attributes.addClass('small-12 medium-4 cell') }}>{{ item.content }}</div>
+  {% endfor %}
+</div>

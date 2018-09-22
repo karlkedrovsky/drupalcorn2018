@@ -251,8 +251,8 @@ $databases = [];
  *   );
  * @endcode
  */
-// $config_directories = [];
-$config_directories['sync'] = '../config/sync';
+$config_directories = [];
+$config_directories['sync'] = '../config-paragraphs/sync';
 
 /**
  * Settings:
@@ -281,7 +281,7 @@ $config_directories['sync'] = '../config/sync';
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'miTPSzm8KV0BB0wCdZ1dzTt1X6kxa9hCjx36tGVfhS_SgWM1-V2EFeoNJR4AvacBNYpk1LN7XA';
+$settings['hash_salt'] = 'Z16q-cEd3hk-mT_bi9rrX4ACqIb176rbslE5FobLo6Kt5wUnbfEjBS95nwSIv8DAnQaFk6zaFw';
 
 /**
  * Deployment identifier.
