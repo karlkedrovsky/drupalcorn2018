@@ -1,0 +1,18 @@
+{% if content %}
+  <div {{ attributes.addClass('paragraph-tabs') }}>
+    <ul class="tabs" data-tabs id="tabs-{{ content.id() }}">
+    {% for tab in content.field_tabs if tab['#paragraph'] %}
+      <li class="tabs-title{{ loop.first ? ' is-active' : '' }}">
+        <a href="#tabs-{{ tab['#paragraph'].id.value }}">{{ tab['#paragraph'].field_label.value }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+    <div class="tabs-content" data-tabs-content="tabs-{{ content.id() }}">
+      {% for tab in content.field_tabs if tab['#paragraph'] %}
+        <div class="tabs-panel{{ loop.first ? ' is-active' : '' }}" id="tabs-{{ tab['#paragraph'].id.value}}">
+          {{ tab|without('field_label') }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

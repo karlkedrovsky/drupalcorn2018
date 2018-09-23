@@ -2,21 +2,26 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd $DIR/../..
-
 if [ "$1" != "" ]; then
     BACKUP_NAME="$1"
 else
     BACKUP_NAME="$( date +%Y%m%d-%H%M%S )"
 fi
 
-DB_FILE="backup/db-$BACKUP_NAME.sql"
-FILES_FILE="backup/files-$BACKUP_NAME.zip"
+for SITE_NAME in empty bricks paragraphs
+do
+    echo -e "\nBacking up $SITE_NAME\n"
 
-fin db dump $DB_FILE >/dev/null 2>&1
-cd docroot/sites/default
-zip -qr ../../../$FILES_FILE files
+    cd $DIR/../..
 
-echo -e "\nBackup files:\n\
-  Database: $DB_FILE\n\
-  Files:    $FILES_FILE\n"
+    DB_FILE="backup/db-$SITE_NAME-$BACKUP_NAME.sql"
+    FILES_FILE="backup/files-$SITE_NAME-$BACKUP_NAME.zip"
+
+    fin db dump --db=$SITE_NAME $DB_FILE >/dev/null 2>&1
+    cd docroot/sites/$SITE_NAME
+    zip -qr ../../../$FILES_FILE files
+
+    echo -e "\nBackup files:\n\
+        Database: $DB_FILE\n\
+        Files:    $FILES_FILE\n"
+done

@@ -1,0 +1,15 @@
+
+{% if content %}
+  <div {{ attributes }}>
+    <ul class="accordion" data-accordion>
+    {% for section in content.field_sections if section['#paragraph'] %}
+      <li class="accordion-item{{ loop.first ? ' is-active' : '' }}" data-accordion-item>
+        <a href="#" class="accordion-title">{{ section['#paragraph'].field_label.value }}</a>
+        <div class="accordion-content" data-tab-content>
+          {{ section|without('field_label') }}
+        </div>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endif %}

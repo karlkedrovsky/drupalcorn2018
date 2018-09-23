@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-if [ "$1" == "" ]; then
-    echo -e "\nUsage: fin restore backup-name\n"
+if [ "$2" == "" ]; then
+    echo -e "\nUsage: fin restore site-name backup-name\n"
     exit 1
 fi
 
-BACKUP_NAME="$1"
+SITE_NAME="$1"
+BACKUP_NAME="$2"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 

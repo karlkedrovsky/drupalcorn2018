@@ -18,6 +18,40 @@ h1 {
 
 footer > div {
   border-top: 1px solid #cacaca;
+  margin: 2rem 0;
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.paragraph-tabs, .paragraph-accordion {
+  margin-bottom: 2rem;
+}
+
+.drupalcorn-centered {
+  text-align: center;
+}
+
+.drupalcorn-image-left,
+.drupalcorn-image-right {
+  overflow: hidden;
+}
+
+.drupalcorn-image-left > div {
+  float: left;
+  width: 66%;
+}
+
+.drupalcorn-image-left > div:first-child {
+  padding-right: 2rem;
+  width: 33%;
+}
+
+.drupalcorn-image-right > div {
+  float: right;
+  width: 66%;
+}
+
+.drupalcorn-image-right > div:first-child {
+  padding-left: 2rem;
+  width: 33%;
 }
