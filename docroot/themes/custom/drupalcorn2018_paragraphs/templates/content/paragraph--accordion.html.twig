@@ -1,6 +1,6 @@
 
 {% if content %}
-  <div {{ attributes }}>
+  <div {{ attributes.addClass('paragraph-accordion') }}>
     <ul class="accordion" data-accordion>
     {% for section in content.field_sections if section['#paragraph'] %}
       <li class="accordion-item{{ loop.first ? ' is-active' : '' }}" data-accordion-item>
