@@ -12,14 +12,16 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 cd $DIR/../..
 
-DB_FILE="backup/db-$BACKUP_NAME.sql"
-FILES_FILE="backup/files-$BACKUP_NAME.zip"
+DB_FILE="backup/db-$SITE_NAME-$BACKUP_NAME.sql"
+FILES_FILE="backup/files-$SITE_NAME-$BACKUP_NAME.zip"
 
 echo -e "\n\nRestoring database from: $DB_FILE\n\n"
-fin db import $DB_FILE
+fin db import $DB_FILE --db=$SITE_NAME
 
 echo -e "\n\nRestoring files from: $FILES_FILE\n\n"
 cd docroot/sites/default
 sudo rm -rf files
 unzip -q ../../../$FILES_FILE 
 chmod -R a+w files
+
+fin ddrush cr --uri=$SITE_NAME.drupalcorn2018.docksal
